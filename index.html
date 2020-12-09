@@ -1,49 +1,63 @@
 <!DOCTYPE HTML>
 <html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-p {
-  text-align: center;
-  font-size: 60px;
-  margin-top: 0px;
-}
-</style>
-</head>
-<body>
-
-<p id="demo"></p>
-
-<script>
-// Set the date we're counting down to
-var countDownDate = new Date("April 1, 2021 00:00:00").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vaxel Network - Landing</title>
+    <link href="https://fonts.googleapis.com/css?family=Quicksand:300,500" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  <style>
+  body {
+    background-color: rgb(26, 26, 26);
   }
-}, 1000);
-</script>
+  p {
+    color: floralwhite;
+    text-align: center;
+    font-size: 35px;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 300;
+    margin-top: 0px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    color: floralwhite;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    margin-top: 375px;
+  }
+  </style>
+  </head>
+  <body>
+    <h1>There is still some time left... is it?</h1>
+    <p id="countdown"></p>
+    <h3>    </h3>
 
-</body>
+    <script>
+      var countDownDate = new Date("April 1, 2021 00:00:00").getTime();
+
+      var x = setInterval(function() {
+
+      var now = new Date().getTime();
+    
+      var distance = countDownDate - now;
+    
+      var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+    
+      if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("countdown").innerHTML = "Server released!";
+      }
+      }, 1000);
+    </script>
+  </body>
+  <footer>
+    <h4>Copyright Vaxel Network © 2021 All rights reserved.</h4>
+  </footer>
 </html>
